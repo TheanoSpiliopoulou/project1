@@ -3,6 +3,8 @@
 
 # Εισάγουμε βιβλιοθήκες και εργαλεία για σε όλο το αρχείο
 import pandas as pd
+import numpy as np
+# Εισάγουμε τη βιβλιοθήκη numpy που θα μας βοηθήσει αργότερα με τη γραμμική άλγεβρα
 
 # από το scikit-learn: κάνει μετατροπή κειμένου σε διανύσματα 
 from sklearn.model_selection import train_test_split            
