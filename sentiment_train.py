@@ -113,6 +113,8 @@ class DataSetChecker:
                   f"κενές τιμές στη στήλη label: {missing_label}.")
             return False
  
-
+         def run_all_checkers(self):
+          #εκτελεί όλους τους ελέγχους για το αρχείο csv
+           print("Τώρα αρχίζει ο συνολικός έλεγχος του αρχείου csv")
 
     
