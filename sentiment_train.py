@@ -116,5 +116,37 @@ class DataSetChecker:
          def run_all_checkers(self):
           #εκτελεί όλους τους ελέγχους για το αρχείο csv
            print("Τώρα αρχίζει ο συνολικός έλεγχος του αρχείου csv")
+           def run_all_checkers(self):
+        # Συνάρτηση που εκτελεί ΟΛΟΥΣ τους ελέγχους για το αρχείο sentences.csv.
+        # Χρησιμοποιώ μια μεταβλητή all_good για να θυμάμαι
+        # αν μέχρι τώρα όλα είναι εντάξει (True) ή αν βρέθηκε κάποιο λάθος (False).
 
-    
+        print("=== Ξεκινάει ο συνολικός έλεγχος του αρχείου sentences.csv ===")
+
+        # Στην αρχή προυποθέτω ότι όλα είναι εντάξει με τη μεταβλητή boolean (all_good)
+        all_good = True
+        #καλώ την μέθοδο file_exists που έχω ορίσει παραπάνω
+      # Μέρος 1
+        if not self.file_exists():
+            # Αν ΔΕΝ υπάρχει το αρχείο,τότε τυπώνω 
+            print("ΛΑΘΟΣ: Το αρχείο sentences.csv δεν βρέθηκε στον φάκελο.")
+            # αυτή η μέθοδος γυρνάει True αν υπάρχει το αρχείο και False αν δεν υπάρχει
+            all_good = False
+        else:
+            print("OK: Το αρχείο sentences.csv βρέθηκε.")
+        # Μέρος 2: Φόρτωση του CSV σε DataFrame, μόνο σε περίπτωση που όλα μέχρι τώρα είναι καλά
+        #Φτιάχνω μία μεταβλητή df και της δίνεις τιμή "άδειο" δηλ.None
+        #Αν η φόρτωση πετύχει η df θα γίνει ένας πίνακας (Data Frame)
+        df = None 
+       #Αν μέχρι στιγμής όλα καλά δηλαδή ακόμα True προχωράμε στη φόρτωση
+        if all_good:
+            df = self.load_csv()
+            print("OK: Το αρχείο φορτώθηκε σωστά σε πίνακα")
+        def load_csv(self):
+        #Ορίζει μέθοδο μέσα στην κλάση DataSetChecker
+        # Φορτώνει το CSV σε DataFrame με κωδικοποίηση UTF-8.
+        print("Φόρτωση CSV από το μονοπάτι:" + self.csv_path)
+        df = pd.read_csv(self.csv_path, encoding="utf-8")
+       #επιστρέφει τον πίνακα df
+      return df
+
